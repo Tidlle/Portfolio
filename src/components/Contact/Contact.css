@@ -1,0 +1,10 @@
+.contact-section {
+	padding-top: 2.5rem;
+	padding-bottom: 4rem;
+}
+
+#contact p {
+	font-size: 0.86rem;
+	letter-spacing: var(--tracking-xwide);
+	text-transform: uppercase;
+}

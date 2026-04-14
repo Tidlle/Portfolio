@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap");
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	font-family: "Space Grotesk", "Segoe UI", sans-serif;
+	background: var(--color-bg);
+	color: var(--color-text);
+	line-height: 1.4;
+	letter-spacing: 0.01em;
+	overflow-x: hidden;
+}
+
+body::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: -1;
+	background:
+		radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.09), transparent 35%),
+		radial-gradient(circle at 80% 5%, rgba(255, 255, 255, 0.07), transparent 28%),
+		linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 22%);
+}
+
+#root {
+	min-height: 100vh;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	transition: var(--motion-smooth);
+}
+
+.container {
+	width: min(100% - 2rem, var(--container));
+	margin-inline: auto;
+}
+
+.section {
+	padding: var(--space-xl) 0;
+}
+
+.page-main {
+	padding-top: 3.5rem;
+}
+
+.not-found {
+	min-height: 100vh;
+	display: grid;
+	place-content: center;
+	gap: var(--space-sm);
+	text-transform: uppercase;
+	letter-spacing: var(--tracking-wide);
+}
+
+.not-found h1 {
+	font-size: clamp(2.5rem, 9vw, 7rem);
+	margin-bottom: 0;
+}
+
+.not-found a {
+	color: var(--color-text);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+	width: fit-content;
+}
+
+h1,
+h2,
+h3,
+p {
+	margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: 500;
+	letter-spacing: var(--tracking-wide);
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: clamp(1.4rem, 1.8vw, 2rem);
+	margin-bottom: var(--space-lg);
+}
+
+p,
+li,
+small {
+	color: var(--color-muted);
+}
+
+/* ── Keyframes ───────────────────────────────────── */
+@keyframes fadeUp {
+	from { opacity: 0; transform: translateY(40px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeLeft {
+	from { opacity: 0; transform: translateX(-40px); }
+	to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeRight {
+	from { opacity: 0; transform: translateX(40px); }
+	to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+	from { opacity: 0; transform: scale(0.85); }
+	to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Classes de animação em repouso ─────────────── */
+.animate-fade-up,
+.animate-fade-left,
+.animate-fade-right,
+.animate-scale-in {
+	opacity: 0;
+}
+
+/* ── Disparo ao entrar na viewport ──────────────── */
+.animate-fade-up.in-view {
+	animation: fadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-fade-left.in-view {
+	animation: fadeLeft 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-fade-right.in-view {
+	animation: fadeRight 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-scale-in.in-view {
+	animation: scaleIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ── Stagger para filhos ─────────────────────────── */
+.stagger-children > * {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stagger-children.in-view > *:nth-child(1)  { opacity: 1; transform: none; transition-delay: 0.05s; }
+.stagger-children.in-view > *:nth-child(2)  { opacity: 1; transform: none; transition-delay: 0.15s; }
+.stagger-children.in-view > *:nth-child(3)  { opacity: 1; transform: none; transition-delay: 0.25s; }
+.stagger-children.in-view > *:nth-child(4)  { opacity: 1; transform: none; transition-delay: 0.35s; }
+.stagger-children.in-view > *:nth-child(5)  { opacity: 1; transform: none; transition-delay: 0.45s; }
+.stagger-children.in-view > *:nth-child(6)  { opacity: 1; transform: none; transition-delay: 0.55s; }
+.stagger-children.in-view > *:nth-child(7)  { opacity: 1; transform: none; transition-delay: 0.65s; }
+.stagger-children.in-view > *:nth-child(8)  { opacity: 1; transform: none; transition-delay: 0.75s; }
+.stagger-children.in-view > *:nth-child(n+9){ opacity: 1; transform: none; transition-delay: 0.85s; }
+
+/* ── Preferência por menos movimento ────────────── */
+@media (prefers-reduced-motion: reduce) {
+	.animate-fade-up,
+	.animate-fade-left,
+	.animate-fade-right,
+	.animate-scale-in {
+		opacity: 1;
+		animation: none;
+	}
+	.stagger-children > * {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}

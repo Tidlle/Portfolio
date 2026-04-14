@@ -1,0 +1,21 @@
+:root {
+	--color-bg: #000000;
+	--color-text: #ffffff;
+	--color-muted: #888888;
+	--color-pop: #7fffd4;
+
+	--space-xs: 4px;
+	--space-sm: 8px;
+	--space-md: 16px;
+	--space-lg: 32px;
+	--space-xl: 64px;
+
+	--border-none: 0;
+	--radius: 0;
+	--shadow-none: none;
+
+	--container: 1320px;
+	--tracking-wide: 0.08em;
+	--tracking-xwide: 0.16em;
+	--motion-smooth: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
