@@ -13,6 +13,13 @@ const projects = [
 		tech: ["React", "Vite", "JavaScript", "CSS"],
 		url: "https://gs-2-front-end-iota.vercel.app/"
 	}
+	{
+		id: 3,
+		title: "Finora",
+		description: "Plataforma inteligente de gestão financeira pessoal desenvolvida para auxiliar usuários no controle de receitas, despesas e metas financeiras. O sistema conta com dashboards interativos, categorização de transações, autenticação segura com JWT, relatórios, recorrência de lançamentos e insights inteligentes para apoiar a tomada de decisões financeiras, utilizando uma arquitetura full stack moderna e escalável.",
+		tech: ["React", "TypeScript", "Vite", "Java", "Spring Boot", "PostgreSQL"],
+		url: "https://finora-kohl.vercel.app/"
+}
 ];
 
 export default projects;
