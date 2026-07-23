@@ -12,7 +12,7 @@ const projects = [
 		description: "Plataforma focada em requalificação profissional com apoio de inteligência artificial, criada para mapear competências, identificar lacunas e recomendar trilhas personalizadas de aprendizado e oportunidades de carreira. O projeto apresenta páginas institucionais, FAQ, trilhas e explicação do fluxo da solução.",
 		tech: ["React", "Vite", "JavaScript", "CSS"],
 		url: "https://gs-2-front-end-iota.vercel.app/"
-	}
+	},
 	{
 		id: 3,
 		title: "Finora",
